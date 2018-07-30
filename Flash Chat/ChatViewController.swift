@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 
 class ChatViewController: UIViewController {
     
     // Declare instance variables here
-
+    
     
     // We've pre-linked the IBOutlets
     @IBOutlet var heightConstraint: NSLayoutConstraint!
@@ -30,18 +31,18 @@ class ChatViewController: UIViewController {
         
         
         //TODO: Set yourself as the delegate of the text field here:
-
+        
         
         
         //TODO: Set the tapGesture here:
         
         
-
+        
         //TODO: Register your MessageCell.xib file here:
-
+        
         
     }
-
+    
     ///////////////////////////////////////////
     
     //MARK: - TableView DataSource Methods
@@ -69,7 +70,7 @@ class ChatViewController: UIViewController {
     //MARK:- TextField Delegate Methods
     
     
-
+    
     
     //TODO: Declare textFieldDidBeginEditing here:
     
@@ -78,7 +79,7 @@ class ChatViewController: UIViewController {
     
     //TODO: Declare textFieldDidEndEditing here:
     
-
+    
     
     ///////////////////////////////////////////
     
@@ -100,17 +101,24 @@ class ChatViewController: UIViewController {
     //TODO: Create the retrieveMessages method here:
     
     
-
+    
     
     
     
     @IBAction func logOutPressed(_ sender: AnyObject) {
-        
         //TODO: Log out the user and send them back to WelcomeViewController
         
-        
+        do {
+            try Auth.auth().signOut()
+        }catch {
+            print("Problem in Signing Out")
+        }
+        guard (navigationController?.popToRootViewController(animated: true) != nil) else {
+            print("No ViewControllers to pop")
+            return
+        }
     }
     
-
-
+    
+    
 }
