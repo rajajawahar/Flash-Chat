@@ -10,7 +10,11 @@ import UIKit
 import Firebase
 
 
-class ChatViewController: UIViewController {
+class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
+    
+    
+    
     
     // Declare instance variables here
     
@@ -25,8 +29,9 @@ class ChatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //TODO: Set yourself as the delegate and datasource here:
+        messageTableView.delegate = self
+        messageTableView.dataSource = self
+
         
         
         
@@ -43,21 +48,13 @@ class ChatViewController: UIViewController {
         
     }
     
-    ///////////////////////////////////////////
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+    }
     
-    //MARK: - TableView DataSource Methods
-    
-    
-    
-    //TODO: Declare cellForRowAtIndexPath here:
-    
-    
-    
-    //TODO: Declare numberOfRowsInSection here:
-    
-    
-    
-    //TODO: Declare tableViewTapped here:
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+    }
     
     
     
